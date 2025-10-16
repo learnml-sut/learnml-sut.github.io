@@ -19,6 +19,11 @@ const props = defineProps({
     type: String,
     required: false,
     default: '#',
+  },
+  responsibility: {
+    type: String,
+    required: false,
+    default: '',
   }
 });
 </script>
@@ -27,8 +32,9 @@ const props = defineProps({
   <div class="person-card">
     <a :href="personalWebsite" target="_blank">
       <img :src="avatar" alt="" class="person-avatar" />
-      <div class="person-name">
+      <div class="person-info">
         <p class="name">{{ props.firstName }} {{ props.lastName }}</p>
+        <p v-if="responsibility" class="responsibility">{{ responsibility }}</p>
       </div>
     </a>
   </div>
@@ -63,17 +69,34 @@ const props = defineProps({
   margin-bottom: 10px;
 }
 
-.person-name {
+.person-info {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 5px;
+  align-items: center;
 }
 
-.person-name > p {
+.person-info > p {
   width: 100%;
   word-break: break-word;
   text-align: center;
   text-decoration: none;
   color: inherit;
+  margin: 0;
+}
+
+.name {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.responsibility {
+  font-size: 0.85rem;
+  color: var(--primary-color);
+  font-weight: 500;
+  padding: 4px 8px;
+  background: rgba(var(--primary-color-rgb, 59, 130, 246), 0.1);
+  border-radius: 12px;
+  white-space: nowrap;
 }
 </style>

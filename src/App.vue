@@ -7,7 +7,6 @@ import CourseSchedule from "@/components/CourseSchedule.vue";
 import CourseDescription from "@/components/CourseDescription.vue";
 import CourseContents from "@/components/course-contents/index.vue";
 import Contact from "@/components/Contact.vue";
-import ClassDetails from './components/course-contents/ClassDetails.vue'
 </script>
 
 <template>
@@ -20,7 +19,6 @@ import ClassDetails from './components/course-contents/ClassDetails.vue'
     <CourseSchedule id="schedule"/>
     <Contact id="contact"/>
     <Footer />
-    <Test />
   </main>
 </template>
 

@@ -1,9 +1,27 @@
 <script setup>
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+import Fall2025Schedule from './schedule/Fall2025Schedule.vue'
+import Spring2025Schedule from './schedule/Spring2025Schedule.vue'
+
 const sectionTitle = 'Course Schedule';
+const route = useRoute()
+
+const currentSemester = computed(() => {
+  const path = route.path
+  if (path.includes('spring2025')) {
+    return 'spring2025'
+  }
+  return 'fall2025' // Default
+})
 </script>
 
 <script>
 export default {
+  components: {
+    Fall2025Schedule,
+    Spring2025Schedule
+  },
   data() {
     return {
       sessions: [
@@ -359,34 +377,10 @@ export default {
   <div class="section">
     <div class="section-content">
       <div class="title font-bold text-3xl sm:text-4xl">{{ sectionTitle }}</div>
-      <div class="sub-section">
-        <div class="sub-section-content">
-          <div class="schedule-wrapper">
-          <div class="schedule-grid">
-            <div class="schedule-header">
-              <div class="header-cell">#</div>
-              <div class="header-cell">Date</div>
-              <div class="header-cell">Topics</div>
-              <div class="header-cell">Coursework</div>
-              <div class="header-cell">Deadline</div>
-            </div>
-            <div v-for="session in sessions" :key="session.number" 
-                 :class="['schedule-row', getRowClass(session.event)]">
-              <div class="cell">{{ session.number }}</div>
-              <div class="cell">{{ session.date }}</div>
-              <div class="cell topics">
-                <div v-for="(topic, index) in session.topics" :key="index">
-                  <a v-if="topic.link" :href="topic.link" class="any-link">{{ topic.topic }}</a>
-                  <span v-else>{{ topic.topic }}</span>
-                </div>
-              </div>
-              <div class="cell">{{ session.coursework }}</div>
-              <div class="cell">{{ session.deadline }}</div>
-            </div>
-          </div>
-        </div>
-        </div>
-      </div>
+      
+      <!-- Dynamic semester schedule -->
+      <Fall2025Schedule v-if="currentSemester === 'fall2025'" />
+      <Spring2025Schedule v-else-if="currentSemester === 'spring2025'" />
       <div class="sub-section">
         <div class="sub-section-content">
           <div class="sub-title">Additional Materials</div>

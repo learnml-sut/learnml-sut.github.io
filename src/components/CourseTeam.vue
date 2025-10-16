@@ -1,8 +1,21 @@
 <script setup lang="ts">
-
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
 import PersonCard from "../components/PersonCard.vue";
+import Fall2025Team from './team/Fall2025Team.vue'
+import Spring2025Team from './team/Spring2025Team.vue'
 
 const sampleTitle = 'Instructor Team';
+const route = useRoute()
+
+const currentSemester = computed(() => {
+  const path = route.path
+  if (path.includes('spring2025')) {
+    return 'spring2025'
+  }
+  return 'fall2025' // Default
+})
+
 const courseInstructor = {
   title: 'Course Instructor',
   firstName: 'Sajjad',
@@ -10,41 +23,6 @@ const courseInstructor = {
   avatar: 'Amini.jpg',
   personalWebsite: 'https://sharif.edu/~s_amini/'
 };
-
-const courseHeadAssistants = {
-  title: 'Course Head Assistants',
-  people: [
-    {firstName: 'Borna', lastName: 'Khodabandeh', avatar: 'Khodabandeh.jpg', email: 'borna710kh@gmail.com', personalWebsite: ''},
-    {firstName: 'Amir Abbas', lastName: 'Afzali', avatar: 'Afzali.jpg', email: 'amir8afzali@gmail.com', personalWebsite: ''}
-  ]
-};
-
-const courseAssistants = {
-  title: 'Course Assistants',
-  people: [
-    {firstName: 'Parsa', lastName: 'Ghezelbash', avatar: 'profile.jpg', personalWebsite: ''},
-    {firstName: 'Amirhossein', lastName: 'Naghdi', avatar: 'profile.jpg', personalWebsite: ''},
-    {firstName: 'Iman', lastName: 'Ahmadi', avatar: 'profile.jpg', personalWebsite: ''},
-    {firstName: 'Ali', lastName: 'Sadeghian', avatar: 'profile.jpg', personalWebsite: ''},
-    {firstName: 'Hesam', lastName: 'Hosseini', avatar: 'profile.jpg', personalWebsite: ''},
-    {firstName: 'Amirreza', lastName: 'Velaei', avatar: 'profile.jpg', personalWebsite: ''},
-    {firstName: 'Mohammad', lastName: 'Mosavi', avatar: 'profile.jpg', personalWebsite: ''},
-    {firstName: 'Mohammad Hossein', lastName: 'Momeni', avatar: 'profile.jpg', personalWebsite: ''},
-    {firstName: 'Zahra', lastName: 'Maleki', avatar: 'profile.jpg', personalWebsite: ''},
-    {firstName: 'Hooman', lastName: 'Zolfaghari', avatar: 'profile.jpg', personalWebsite: ''},
-    {firstName: 'Romina', lastName: 'Babaei', avatar: 'profile.jpg', personalWebsite: ''},
-    {firstName: 'Yahya', lastName: 'Tehrani', avatar: 'profile.jpg', personalWebsite: ''},
-    {firstName: 'Mahdi', lastName: 'Tabatabaei', avatar: 'profile.jpg', personalWebsite: ''},
-    {firstName: 'Sina', lastName: 'Yazdgerd', avatar: 'profile.jpg', personalWebsite: ''},
-    {firstName: 'Ghazal', lastName: 'Hosseini', avatar: 'profile.jpg', personalWebsite: ''},
-    {firstName: 'Amirreza', lastName: 'Zameni', avatar: 'profile.jpg', personalWebsite: ''},
-    {firstName: 'Amirreza', lastName: 'Tanevardi', avatar: 'profile.jpg', personalWebsite: ''},
-    {firstName: 'Mohammad', lastName: 'Mohammadian', avatar: 'profile.jpg', personalWebsite: ''},
-    {firstName: 'Mohammad Parsa', lastName: 'Ghaderahmadi', avatar: 'profile.jpg', personalWebsite: ''},
-    {firstName: 'Sina', lastName: 'Fathi', avatar: 'profile.jpg', personalWebsite: ''},
-  ]
-};
-
 </script>
 <template>
   <div class="section">
@@ -64,32 +42,10 @@ const courseAssistants = {
             </div>
           </div>
         </div>
-        <div class="sub-section-content">
-          <div class="sub-title">{{ courseHeadAssistants.title }}</div>
-          <div class="grid-team scrollable">
-            <div class="grid-card" v-for="(headAssistant, index) in courseHeadAssistants.people" :key="index">
-              <PersonCard
-                  :firstName="headAssistant.firstName"
-                  :lastName="headAssistant.lastName"
-                  :avatar="headAssistant.avatar"
-                  :personal-website="headAssistant.personalWebsite" 
-              />
-            </div>
-          </div>
-        </div>
-        <div class="sub-section-content">
-          <div class="sub-title">{{ courseAssistants.title }}</div>
-          <div class="grid-team scrollable">
-            <div class="grid-card" v-for="(assistant, index) in courseAssistants.people" :key="index">
-              <PersonCard
-                  :firstName="assistant.firstName"
-                  :lastName="assistant.lastName"
-                  :avatar="assistant.avatar"
-                  :personal-website="assistant.personalWebsite"
-              />
-            </div>
-          </div>
-        </div>
+        
+        <!-- Dynamic semester team -->
+        <Fall2025Team v-if="currentSemester === 'fall2025'" />
+        <Spring2025Team v-else-if="currentSemester === 'spring2025'" />
       </div>
     </div>
   </div>

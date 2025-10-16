@@ -1,4 +1,11 @@
 <script setup>
+import { computed, ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+
+const route = useRoute()
+const router = useRouter()
+const isDropdownOpen = ref(false)
+
 // Define props for the text and image
 const props = defineProps({
   title1: {
@@ -6,22 +13,108 @@ const props = defineProps({
     required: false,
     default: 'Introduction to Machine Learning'
   },
-  description: {
-    type: String,
-    required: false,
-    default: 'IML-25737-2 - Spring 2024'
-  },
   imageUrl: {
     type: String,
     required: false,
     default: '/images/landingImg.jpg'
   }
 });
+
+// Available semesters
+const semesters = [
+  { id: 'fall2025', code: 'IML-25737-1', name: 'Fall 2025' },
+  { id: 'spring2025', code: 'IML-25737-2', name: 'Spring 2025' }
+]
+
+// Compute current semester info based on route
+const currentSemester = computed(() => {
+  const path = route.path
+  const semester = semesters.find(s => path.includes(s.id))
+  return semester || semesters[0] // Default to Fall 2025
+})
+
+// Get available semesters (excluding current)
+const availableSemesters = computed(() => {
+  return semesters.filter(s => s.id !== currentSemester.value.id)
+})
+
+function switchSemester(semesterId) {
+  router.push(`/${semesterId}`)
+  isDropdownOpen.value = false
+}
+
+function toggleDropdown() {
+  isDropdownOpen.value = !isDropdownOpen.value
+}
+
+// Close dropdown when clicking outside
+function handleClickOutside(event) {
+  const dropdown = document.querySelector('.semester-dropdown')
+  if (dropdown && !dropdown.contains(event.target)) {
+    isDropdownOpen.value = false
+  }
+}
+
+// Add event listener for clicks outside
+if (typeof window !== 'undefined') {
+  document.addEventListener('click', handleClickOutside)
+}
 </script>
 
 <template>
   <div class="relative">
     <section class="main-body">
+      <!-- Semester Dropdown -->
+      <div class="semester-dropdown" @click.stop>
+        <button 
+          @click="toggleDropdown" 
+          class="semester-button"
+          :class="{ 'active': isDropdownOpen }"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+          <span class="semester-label">{{ currentSemester.name }}</span>
+          <svg 
+            class="chevron" 
+            :class="{ 'rotate': isDropdownOpen }"
+            xmlns="http://www.w3.org/2000/svg" 
+            width="16" 
+            height="16" 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            stroke="currentColor" 
+            stroke-width="2" 
+            stroke-linecap="round" 
+            stroke-linejoin="round"
+          >
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+        
+        <transition name="dropdown">
+          <div v-if="isDropdownOpen" class="dropdown-menu">
+            <button
+              v-for="semester in availableSemesters"
+              :key="semester.id"
+              @click="switchSemester(semester.id)"
+              class="dropdown-item"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+              <span>{{ semester.name }}</span>
+            </button>
+          </div>
+        </transition>
+      </div>
+
       <div class="page-title">
         <div class="first-title">
           <div class="first-title-inner">
@@ -58,7 +151,7 @@ const props = defineProps({
           Sharif University of Technology
         </p>
         <p class="sub-title text-gray-600 text-xl md:text-2xl lg:text-2xl">
-          IML-25737-2 - Spring 2024
+          {{ currentSemester.code }} - {{ currentSemester.name }}
         </p>
         <p class="professor-name text-gray-800 text-lg md:text-2xl lg:text-2xl font-semibold mt-2">
           Professor: Sajjad Amini
@@ -116,7 +209,6 @@ const props = defineProps({
   bottom: -0.75rem;
   position: absolute;
   display: block;
-  vertical-align: middle;
   z-index: -1;
 }
 
@@ -175,5 +267,158 @@ const props = defineProps({
   font-weight: bold; /* Make it bold */
   color: var(--primary-color); /* Change color to primary */
   text-align: center; /* Center align the text */
+}
+
+.semester-dropdown {
+  position: absolute;
+  top: 160px;
+  right: 6%;
+  z-index: 100;
+}
+
+.semester-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, rgba(45, 70, 185, 0.05) 0%, rgba(78, 205, 196, 0.05) 100%);
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--accent-color);
+  border-radius: 12px;
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(45, 70, 185, 0.1);
+  min-width: 180px;
+}
+
+.semester-button:hover {
+  background: var(--gradient-primary);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(45, 70, 185, 0.25);
+  border-color: transparent;
+}
+
+.semester-button.active {
+  background: var(--gradient-primary);
+  color: white;
+  border-color: transparent;
+}
+
+.semester-button svg {
+  flex-shrink: 0;
+}
+
+.semester-label {
+  flex: 1;
+  text-align: left;
+}
+
+.chevron {
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.chevron.rotate {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 180px;
+  background: linear-gradient(135deg, rgba(45, 70, 185, 0.08) 0%, rgba(78, 205, 196, 0.08) 100%);
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--accent-color);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(45, 70, 185, 0.2);
+  overflow: hidden;
+}
+
+.dropdown-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: transparent;
+  border: none;
+  color: var(--primary-color);
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.dropdown-item:hover {
+  background: linear-gradient(90deg, var(--primary-color) 0%, var(--accent-color) 100%);
+  color: white;
+}
+
+.dropdown-item svg {
+  flex-shrink: 0;
+}
+
+/* Dropdown transition */
+.dropdown-enter-active,
+.dropdown-leave-active {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dropdown-enter-from {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.dropdown-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+@media (max-width: 768px) {
+  .semester-dropdown {
+    top: 140px;
+    right: 4%;
+  }
+  
+  .semester-button {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+    min-width: 150px;
+    gap: 8px;
+  }
+  
+  .semester-label {
+    font-size: 0.85rem;
+  }
+  
+  .dropdown-menu {
+    min-width: 150px;
+  }
+  
+  .dropdown-item {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .semester-button {
+    min-width: auto;
+    padding: 10px 12px;
+  }
+  
+  .semester-label {
+    display: none;
+  }
+  
+  .dropdown-menu {
+    min-width: 140px;
+  }
 }
 </style>
