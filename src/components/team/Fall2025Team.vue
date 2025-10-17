@@ -5,8 +5,8 @@ import PersonCard from "../PersonCard.vue";
 const courseHeadAssistants = {
   title: 'Course Head Assistants',
   people: [
-    {firstName: 'Mohammad', lastName: 'Eshtehardian', avatar: 'Eshtehardian.jpg', email: 'borna710kh@gmail.com', personalWebsite: ''},
-    {firstName: 'Mohammad Hossein', lastName: 'Momeni Hamaneh', avatar: 'Hamaneh.jpg', email: 'amir8afzali@gmail.com', personalWebsite: ''}
+    {firstName: 'Mohammad', lastName: 'Eshtehardian', avatar: 'Eshtehardian.jpg', email: 'mohammadeshtehardian@gmail.com', personalWebsite: 'mailto:mohammadeshtehardian@gmail.com'},
+    {firstName: 'Mohammad Hossein', lastName: 'Momeni Hamaneh', avatar: 'Hamaneh.jpg', email: 'momenihamaneh1381@gmail.com', personalWebsite: 'mailto:momenihamaneh1381@gmail.com'}
   ]
 };
 
@@ -15,12 +15,12 @@ const courseAssistants = {
   people: [
     {firstName: 'Arshak', lastName: 'Rezvani', avatar: 'profile.jpg', personalWebsite: '', responsibility: 'Project'},
     {firstName: 'Amirreza', lastName: 'Velaei', avatar: 'profile.jpg', personalWebsite: '', responsibility: 'HW1'},
-    {firstName: 'Sarina', lastName: 'Heshmati', avatar: 'profile.jpg', personalWebsite: '', responsibility: 'HW2'},
+    {firstName: 'Sarina', lastName: 'Heshmati', avatar: 'Heshmati.jpg', personalWebsite: 'mailto:sarinaheshmatii@gmail.com', responsibility: 'HW2'},
     {firstName: 'Esra', lastName: 'Kashaninia', avatar: 'profile.jpg', personalWebsite: '', responsibility: 'HW3'},
-    {firstName: 'Mahdi', lastName: 'Tabatabaei', avatar: 'profile.jpg', personalWebsite: '', responsibility: 'HW4'},
-    {firstName: 'Ali', lastName: 'Yousefi', avatar: 'profile.jpg', personalWebsite: '', responsibility: 'HW5'},
+    {firstName: 'Mahdi', lastName: 'Tabatabaei', avatar: 'Tabatabaei.jpg', personalWebsite: 'mailto:Tabatabaeii.mahdii@gmail.com', responsibility: 'HW4'},
+    {firstName: 'Ali', lastName: 'Yousefi', avatar: 'Yousefi.jpg', personalWebsite: 'mailto:8aliyousefi@gmail.com', responsibility: 'HW5'},
     {firstName: 'Amirreza', lastName: 'Tanavardi', avatar: 'profile.jpg', personalWebsite: '', responsibility: 'HW6'},
-    {firstName: 'Parsa', lastName: 'Ghezelbash', avatar: 'profile.jpg', personalWebsite: '', responsibility: 'HW1'},
+    {firstName: 'Parsa', lastName: 'Ghezelbash', avatar: 'Ghezelbash.jpeg', personalWebsite: 'mailto:parsaghezelbash04@gmail.com', responsibility: 'HW1'},
     {firstName: 'Mohammad', lastName: 'Mohammadiabisheh', avatar: 'profile.jpg', personalWebsite: '', responsibility: 'HW1'},
     {firstName: 'Ramtin', lastName: 'Moslemi', avatar: 'profile.jpg', personalWebsite: '', responsibility: 'HW2'},
     {firstName: 'Seyed Mohammad Mahdi', lastName: 'Mousavi', avatar: 'profile.jpg', personalWebsite: '', responsibility: 'HW2'},
@@ -30,10 +30,10 @@ const courseAssistants = {
     {firstName: 'Seyed Amir Mahdi', lastName: 'Sadrzadeh', avatar: 'profile.jpg', personalWebsite: '', responsibility: 'HW4'},
     {firstName: 'Sahar', lastName: 'Semsarha', avatar: 'profile.jpg', personalWebsite: '', responsibility: 'HW5'},
     {firstName: 'Melika', lastName: 'Dastgiri', avatar: 'profile.jpg', personalWebsite: '', responsibility: 'HW5'},
-    {firstName: 'Mehdi', lastName: 'Razmjoo', avatar: 'profile.jpg', personalWebsite: '', responsibility: 'HW6'},
-    {firstName: 'Arman', lastName: 'Yazdani', avatar: 'profile.jpg', personalWebsite: '', responsibility: 'HW6'},
+    {firstName: 'Mehdi', lastName: 'Razmjoo', avatar: 'Razmjoo.jpg', personalWebsite: 'mailto:m.mahdi.razmjoo@gmail.com', responsibility: 'HW6'},
+    {firstName: 'Arman', lastName: 'Yazdani', avatar: 'Yazdani.jpg', personalWebsite: 'mailto:m.arman.yazdani@gmail.com', responsibility: 'HW6'},
     {firstName: 'Ashkan', lastName: 'Yousefnia', avatar: 'profile.jpg', personalWebsite: '', responsibility: 'Project'},
-    {firstName: 'Rojin', lastName: 'Salmani', avatar: 'profile.jpg', personalWebsite: '', responsibility: 'Project'},
+    {firstName: 'Rojin', lastName: 'Salmani', avatar: 'profile.jpg', personalWebsite: 'mailto:rojinsalmani5@gmail.com', responsibility: 'Project'},
     {firstName: 'Zahra', lastName: 'Sorkheie', avatar: 'profile.jpg', personalWebsite: '', responsibility: 'Project'},
   ]
 };

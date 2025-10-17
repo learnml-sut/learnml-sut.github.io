@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed } from 'vue';
+
 const props = defineProps({
   firstName: {
     type: String,
@@ -26,6 +28,14 @@ const props = defineProps({
     default: '',
   }
 });
+
+// Extract email from personalWebsite (remove mailto: prefix if present)
+const displayEmail = computed(() => {
+  if (!props.personalWebsite || props.personalWebsite === '#') {
+    return '';
+  }
+  return props.personalWebsite.replace('mailto:', '');
+});
 </script>
 
 <template>
@@ -34,7 +44,7 @@ const props = defineProps({
       <img :src="avatar" alt="" class="person-avatar" />
       <div class="person-info">
         <p class="name">{{ props.firstName }} {{ props.lastName }}</p>
-        <p v-if="responsibility" class="responsibility">{{ responsibility }}</p>
+        <p v-if="displayEmail" class="email">{{ displayEmail }}</p>
       </div>
     </a>
   </div>
@@ -90,13 +100,10 @@ const props = defineProps({
   color: var(--text-color);
 }
 
-.responsibility {
+.email {
   font-size: 0.85rem;
   color: var(--primary-color);
-  font-weight: 500;
-  padding: 4px 8px;
-  background: rgba(var(--primary-color-rgb, 59, 130, 246), 0.1);
-  border-radius: 12px;
-  white-space: nowrap;
+  font-weight: 400;
+  word-break: break-all;
 }
 </style>
