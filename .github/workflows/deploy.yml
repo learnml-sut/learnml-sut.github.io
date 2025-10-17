@@ -38,6 +38,12 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
+    
+    # Add permissions for the token
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
 
     steps:
       - name: Download artifact
@@ -46,6 +52,9 @@ jobs:
           name: production-files
           path: ./dist
 
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        
       - name: Setup Git
         run: |
           git config --global user.name 'GitHub Actions'
@@ -57,5 +66,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           force_orphan: true
+          full_commit_message: 'Deploy: Update site content'
           user_name: 'GitHub Actions'
           user_email: 'actions@github.com'
