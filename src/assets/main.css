@@ -9,5 +9,5 @@
   min-height: 100vh;
   margin: 0 auto;
   padding: 1rem;
-  background-color: var(--vt-c-white);
+  background-color: transparent;
 }
