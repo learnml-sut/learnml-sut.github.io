@@ -402,12 +402,20 @@ export default {
                 <span class="material-description">- Stanford University/Coursera</span>
               </li>
               <li class="material-item">
+                <a class="any-link" href="https://youtube.com/playlist?list=PLoROMvodv4rNyWOpJg_Yh4NSqI4Z4vOYy&si=Pl0rESqOYvtDBGZJ">Stanford CS229: Machine Learning</a>
+                <span class="material-description">- Stanford University</span>
+              </li>
+              <li class="material-item">
                 <a class="any-link" href="https://cs229.stanford.edu/main_notes.pdf">Stanford CS229 Course Notes</a>
                 <span class="material-description">- Stanford University</span>
               </li>
               <li class="material-item">
                 <a class="any-link" href="https://www.cs.cornell.edu/courses/cs4780/2018fa/">Machine Learning for Intelligent Systems</a>
                 <span class="material-description">- Cornell University</span>
+              </li>
+              <li class="material-item">
+                <a class="any-link" href="https://www.cs.cmu.edu/~10315/">Introduction to Machine Learning</a>
+                <span class="material-description">- Carnegie Mellon University</span>
               </li>
               
               <li class="material-category mt-4">Additional Resources:</li>
@@ -422,6 +430,10 @@ export default {
               <li class="material-item">
                 <a class="any-link" href="https://scikit-learn.org/stable/tutorial/index.html">Scikit-learn Tutorials</a> 
                 <span class="material-description">- For practical implementation</span>
+              </li>
+              <li class="material-item">
+                <a class="any-link" href="https://youtube.com/playlist?list=PLHgjs9ncvHi80UCSlSvQe-TK_uOyDv_Jf&si=g5KgzhzHV4fe9moI">Foundations of Deep Learning</a> 
+                <span class="material-description">- An advanced course by Soheil Feizi.</span>
               </li>
               <li class="material-item">
                 <a class="any-link" href="https://www.di.ens.fr/~fbach/ltfp_book.pdf">Learning Theory from First Principles</a> 
@@ -440,6 +452,14 @@ export default {
               <li class="material-item">
                 <a class="any-link" href="https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab">Essence of Linear Algebra</a> 
                 <span class="material-description">by 3Blue1Brown</span>
+              </li>
+              <li class="material-item">
+                <a class="any-link" href="https://youtube.com/playlist?list=PLUl4u3cNGP60hI9ATjSFgLZpbNJ7myAg6&si=fBlbM9cOLmD9jCrd">Introduction to Probability</a> 
+                <span class="material-description">Comprehensive MIT series covering probability theory fundamentals and applications</span>
+              </li>
+              <li class="material-item">
+                <a class="any-link" href="https://youtube.com/playlist?list=PLUl4u3cNGP60uVBMaoNERc6knT_MgPKS0&si=iaZ6yy0iHm2-bQ4x">Statistics for Applications</a> 
+                <span class="material-description">- MIT course covering statistical inference, regression, and their real-world applications in data science</span>
               </li>
               <li class="material-item">
                 <a class="any-link" href="https://seeing-theory.brown.edu/">Seeing Theory</a> 
