@@ -389,55 +389,7 @@ p, h1, h2, h3, h4, h5, h6 {
   transform-origin: bottom left;
 }
 
-/* Light mode override (for users who prefer light mode) */
-@media (prefers-color-scheme: light) {
-  :root {
-    --primary-color: var(--primary-color-light);
-    --secondary-color: var(--secondary-color-light);
-    --accent-color: var(--accent-color-light);
-    --accent-color-2: var(--accent-color-2-light);
-    --text-color: var(--text-color-light);
-    --dark-color: var(--dark-color-light);
-    --light-color: var(--light-color-light);
-    --border-color: var(--border-color-light);
-    --background: var(--background-light);
-
-    /* Override section content backgrounds for light mode */
-    --vt-c-white: #ffffff;
-    --vt-c-white-soft: #f8f9fe;
-    --vt-c-white-mute: #f1f3f9;
-    --color-background: var(--vt-c-white);
-    --color-background-soft: var(--vt-c-white-soft);
-    --color-background-mute: var(--vt-c-white-mute);
-  }
-
-  .section-content {
-    background: #ffffff;
-    border-color: var(--border-color-light);
-  }
-
-  .sub-section-content {
-    background: #f8f9fe;
-    border-color: var(--border-color-light);
-  }
-
-  .section-content:hover,
-  .sub-section-content:hover {
-    border-color: var(--accent-color-light);
-  }
-
-  body {
-    background-color: #ffffff;
-    background-image: 
-      linear-gradient(135deg, 
-        rgba(45, 70, 185, 0.05) 0%, 
-        rgba(78, 205, 196, 0.05) 100%);
-  }
-
-  body::before {
-    background-image: radial-gradient(circle at 20px 20px, rgba(0, 0, 0, 0.05) 1px, transparent 0);
-  }
-}
+/* Dark mode is enforced - no light mode override */
 
 /* Update header styles */
 .navbar-header {

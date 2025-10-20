@@ -21,7 +21,7 @@ const courseInstructor = {
   firstName: 'Sajjad',
   lastName: 'Amini',
   avatar: 'Amini.jpg',
-  personalWebsite: 'https://sharif.edu/~s_amini/'
+  personalWebsite: 'mailto:s_amini@sharif.edu'
 };
 </script>
 <template>
@@ -55,39 +55,59 @@ const courseInstructor = {
 .grid-card {
   display: flex;
   flex-direction: column;
+  min-width: 0;
+  flex-shrink: 0;
 }
 
 .grid-team {
-  display: flex;
-  overflow-x: auto;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  padding: 0.5rem;
+  justify-items: center;
 }
 
 .scrollable {
   max-width: 100%;
+  overflow-x: visible;
 }
 
-@media (min-width: 640px) {
+/* Mobile: 1-2 columns based on space */
+@media (max-width: 639px) {
   .grid-team {
-    flex-wrap: nowrap;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
   }
 }
 
-@media (min-width: 768px) {
+/* Tablet: 3-4 columns */
+@media (min-width: 640px) and (max-width: 767px) {
   .grid-team {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1023px) {
   .grid-team {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* Desktop: 5-6 columns */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .grid-team {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2rem;
   }
 }
 
 @media (min-width: 1280px) {
   .grid-team {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2rem;
   }
 }
 
