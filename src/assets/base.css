@@ -22,20 +22,20 @@
   --border-color-dark: #363945;
   --background-dark: #1A1B26;
 
-  /* Default to light theme */
-  --primary-color: var(--primary-color-light);
-  --secondary-color: var(--secondary-color-light);
-  --accent-color: var(--accent-color-light);
-  --accent-color-2: var(--accent-color-2-light);
-  --text-color: var(--text-color-light);
-  --dark-color: var(--dark-color-light);
-  --light-color: var(--light-color-light);
-  --border-color: var(--border-color-light);
-  --background: var(--background-light);
+  /* Default to dark theme for consistency across devices */
+  --primary-color: var(--primary-color-dark);
+  --secondary-color: var(--secondary-color-dark);
+  --accent-color: var(--accent-color-dark);
+  --accent-color-2: var(--accent-color-2-dark);
+  --text-color: var(--text-color-dark);
+  --dark-color: var(--dark-color-dark);
+  --light-color: var(--light-color-dark);
+  --border-color: var(--border-color-dark);
+  --background: var(--background-dark);
 
-  --vt-c-white: #ffffff;
-  --vt-c-white-soft: #f8f9fe;
-  --vt-c-white-mute: #f1f3f9;
+  --vt-c-white: var(--dark-color-dark);
+  --vt-c-white-soft: var(--light-color-dark);
+  --vt-c-white-mute: rgba(255, 255, 255, 0.05);
 
   --vt-c-black: #181818;
   --vt-c-black-soft: #222222;
@@ -55,9 +55,9 @@
   --vt-c-text-dark-3: #000000;
 
 /* semantic color variables for this project */
-  --color-background: var(--vt-c-white);
-  --color-background-soft: var(--vt-c-white-soft);
-  --color-background-mute: var(--vt-c-white-mute);
+  --color-background: var(--dark-color-dark);
+  --color-background-soft: var(--light-color-dark);
+  --color-background-mute: rgba(255, 255, 255, 0.05);
 
   --color-border: var(--border-color);
   --color-border-hover: var(--accent-color);
@@ -153,6 +153,14 @@ body::before {
   overflow: hidden;
 }
 
+/* Ensure proper padding on mobile */
+@media (max-width: 639px) {
+  .section-content {
+    padding: 1rem;
+    margin: 0.5rem 0;
+  }
+}
+
 .section-content:hover {
   transform: translateY(-8px);
   box-shadow: 0 20px 40px rgba(45, 70, 185, 0.2);
@@ -214,6 +222,14 @@ body::before {
   border: 1px solid var(--border-color);
 }
 
+/* Ensure proper padding on mobile */
+@media (max-width: 639px) {
+  .sub-section-content {
+    padding: 1rem;
+    margin: 0.75rem 0;
+  }
+}
+
 .sub-section-content:hover {
   box-shadow: 0 8px 25px rgba(45, 70, 185, 0.15);
   border-color: var(--accent-color);
@@ -223,10 +239,19 @@ body::before {
   margin-bottom: 1rem;
   color: var(--secondary-color);
   font-weight: 600;
-  font-size: 1.5rem;
-  line-height: 2rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
   text-align: center;
   transition: color var(--transition-speed) var(--transition-timing);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+@media (min-width: 640px) {
+  .sub-section-content .sub-title {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
 }
 
 .sub-section-content .sub-content {
@@ -364,60 +389,53 @@ p, h1, h2, h3, h4, h5, h6 {
   transform-origin: bottom left;
 }
 
-/* Dark mode specific styles */
-@media (prefers-color-scheme: dark) {
+/* Light mode override (for users who prefer light mode) */
+@media (prefers-color-scheme: light) {
   :root {
-    --primary-color: var(--primary-color-dark);
-    --secondary-color: var(--secondary-color-dark);
-    --accent-color: var(--accent-color-dark);
-    --accent-color-2: var(--accent-color-2-dark);
-    --text-color: var(--text-color-dark);
-    --dark-color: var(--dark-color-dark);
-    --light-color: var(--light-color-dark);
-    --border-color: var(--border-color-dark);
-    --background: var(--background-dark);
+    --primary-color: var(--primary-color-light);
+    --secondary-color: var(--secondary-color-light);
+    --accent-color: var(--accent-color-light);
+    --accent-color-2: var(--accent-color-2-light);
+    --text-color: var(--text-color-light);
+    --dark-color: var(--dark-color-light);
+    --light-color: var(--light-color-light);
+    --border-color: var(--border-color-light);
+    --background: var(--background-light);
 
-    /* Override section content backgrounds for dark mode */
-    --section-bg: var(--dark-color-dark);
-    --subsection-bg: var(--light-color-dark);
-    --vt-c-white: var(--dark-color-dark);
-    --vt-c-white-soft: var(--light-color-dark);
-    --vt-c-white-mute: rgba(255, 255, 255, 0.05);
+    /* Override section content backgrounds for light mode */
+    --vt-c-white: #ffffff;
+    --vt-c-white-soft: #f8f9fe;
+    --vt-c-white-mute: #f1f3f9;
+    --color-background: var(--vt-c-white);
+    --color-background-soft: var(--vt-c-white-soft);
+    --color-background-mute: var(--vt-c-white-mute);
   }
 
   .section-content {
-    background: var(--section-bg);
-    border-color: var(--border-color-dark);
+    background: #ffffff;
+    border-color: var(--border-color-light);
   }
 
   .sub-section-content {
-    background: var(--subsection-bg);
-    border-color: var(--border-color-dark);
+    background: #f8f9fe;
+    border-color: var(--border-color-light);
   }
 
   .section-content:hover,
   .sub-section-content:hover {
-    border-color: var(--accent-color-dark);
-  }
-
-  .schedule-row:hover {
-    background-color: var(--light-color-dark);
-  }
-
-  .exam-row {
-    background-color: rgba(251, 191, 36, 0.15);
+    border-color: var(--accent-color-light);
   }
 
   body {
-    background-color: var(--dark-color-dark);
+    background-color: #ffffff;
     background-image: 
       linear-gradient(135deg, 
-        rgba(123, 147, 255, 0.05) 0%, 
-        rgba(111, 244, 235, 0.05) 100%);
+        rgba(45, 70, 185, 0.05) 0%, 
+        rgba(78, 205, 196, 0.05) 100%);
   }
 
   body::before {
-    background-image: radial-gradient(circle at 20px 20px, rgba(255, 255, 255, 0.1) 1px, transparent 0);
+    background-image: radial-gradient(circle at 20px 20px, rgba(0, 0, 0, 0.05) 1px, transparent 0);
   }
 }
 
@@ -442,14 +460,5 @@ p, h1, h2, h3, h4, h5, h6 {
   background-color: var(--light-color);
 }
 
-/* Update the app background */
-#app {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  min-height: 100vh;
-  margin: 0 auto;
-  padding: 1rem;
-  background-color: transparent;
-}
+/* Update the app background - main styles moved to main.css */
 

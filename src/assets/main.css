@@ -8,6 +8,19 @@
   width: 100%;
   min-height: 100vh;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 0.5rem;
   background-color: transparent;
+}
+
+/* Better mobile padding */
+@media (min-width: 640px) {
+  #app {
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  #app {
+    padding: 1.5rem;
+  }
 }

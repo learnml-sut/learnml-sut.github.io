@@ -54,7 +54,8 @@ const displayEmail = computed(() => {
 .person-card {
   display: flex;
   flex-direction: column;
-  width: fit-content;
+  width: 100%;
+  max-width: 300px;
   margin: 0 auto;
   height: 100%;
   align-items: center;
@@ -71,12 +72,19 @@ const displayEmail = computed(() => {
 }
 
 .person-avatar {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-bottom: 10px;
+}
+
+@media (min-width: 640px) {
+  .person-avatar {
+    width: 120px;
+    height: 120px;
+  }
 }
 
 .person-info {
@@ -89,21 +97,45 @@ const displayEmail = computed(() => {
 .person-info > p {
   width: 100%;
   word-break: break-word;
+  overflow-wrap: break-word;
   text-align: center;
   text-decoration: none;
   color: inherit;
   margin: 0;
+  padding: 0 0.25rem;
 }
 
 .name {
   font-weight: 600;
   color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+@media (min-width: 640px) {
+  .name {
+    font-size: 1rem;
+  }
 }
 
 .email {
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   color: var(--primary-color);
   font-weight: 400;
-  word-break: break-all;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  max-width: 100%;
+}
+
+@media (min-width: 640px) {
+  .email {
+    font-size: 0.85rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .email {
+    font-size: 0.9rem;
+  }
 }
 </style>
