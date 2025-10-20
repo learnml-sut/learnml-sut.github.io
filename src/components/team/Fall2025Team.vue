@@ -13,20 +13,20 @@ const courseHeadAssistants = {
 const courseAssistants = {
   title: 'Course Assistants',
   people: [
-    {firstName: 'Arshak', lastName: 'Rezvani', avatar: 'profile.jpg', personalWebsite: 'mailto:arshak.rezvani0@gmail.com', responsibility: 'Project'},
-    {firstName: 'Amirreza', lastName: 'Velaei', avatar: 'profile.jpg', personalWebsite: 'mailto:amirrezavelae@gmail.com', responsibility: 'HW1'},
+    {firstName: 'Arshak', lastName: 'Rezvani', avatar: 'Rezvani.jpg', personalWebsite: 'mailto:arshakrezvani22@gmail.com', responsibility: 'Project'},
+    {firstName: 'Amirreza', lastName: 'Velaei', avatar: 'Velaei.jpg', personalWebsite: 'mailto:amirrezavelae@gmail.com', responsibility: 'HW1'},
     {firstName: 'Sarina', lastName: 'Heshmati', avatar: 'Heshmati.jpg', personalWebsite: 'mailto:sarinaheshmatii@gmail.com', responsibility: 'HW2'},
-    {firstName: 'Esra', lastName: 'Kashaninia', avatar: 'profile.jpg', personalWebsite: 'mailto:esra.kashaninia@ce.sharif.edu', responsibility: 'HW3'},
+    {firstName: 'Esra', lastName: 'Kashaninia', avatar: 'Kashani.jpeg', personalWebsite: 'mailto:esra.ka170@gmail.com', responsibility: 'HW3'},
     {firstName: 'Mahdi', lastName: 'Tabatabaei', avatar: 'Tabatabaei.jpg', personalWebsite: 'mailto:Tabatabaeii.mahdii@gmail.com', responsibility: 'HW4'},
     {firstName: 'Ali', lastName: 'Yousefi', avatar: 'Yousefi.jpg', personalWebsite: 'mailto:8aliyousefi@gmail.com', responsibility: 'HW5'},
     {firstName: 'Amirreza', lastName: 'Tanevardi', avatar: 'Tanevardi.jpg', personalWebsite: 'mailto:amirrezatanevardi@gmail.com', responsibility: 'HW6'},
     {firstName: 'Parsa', lastName: 'Ghezelbash', avatar: 'Ghezelbash.jpeg', personalWebsite: 'mailto:parsaghezelbash04@gmail.com', responsibility: 'HW1'},
     {firstName: 'Mohammad', lastName: 'Mohammadiabisheh', avatar: 'M-mohammadian.jpg', personalWebsite: 'mailto:m.mohammadian8304@gmail.com', responsibility: 'HW1'},
     {firstName: 'Ramtin', lastName: 'Moslemi', avatar: 'Moslemi.jpg', personalWebsite: 'mailto:ramtin4moslemi@gmail.com', responsibility: 'HW2'},
-    {firstName: 'Seyed Mohammad Mahdi', lastName: 'Mousavi', avatar: 'profile.jpg', personalWebsite: '', responsibility: 'HW2'},
+    {firstName: 'Seyed Mohammad Mahdi', lastName: 'Mousavi', avatar: 'Mousavi.jpg', personalWebsite: 'mailto:n62603@gmail.com', responsibility: 'HW2'},
     {firstName: 'Sadegh', lastName: 'Mohammadian', avatar: 'Sadegh-m.jpg', personalWebsite: 'mailto:sadegh803211@gmail.com', responsibility: 'HW3'},
-    {firstName: 'Romina', lastName: 'Babaie', avatar: 'profile.jpg', personalWebsite: '', responsibility: 'HW3'},
-    {firstName: 'Behrad', lastName: 'Jahani', avatar: 'profile.jpg', personalWebsite: 'mailto:20behrad04@gmail.com', responsibility: 'HW4'},
+    {firstName: 'Romina', lastName: 'Babaie', avatar: 'profile.jpg', personalWebsite: 'mailto:rominababaei.84@gmail.com', responsibility: 'HW3'},
+    {firstName: 'Behrad', lastName: 'Jahani', avatar: 'Jahani.jpg', personalWebsite: 'mailto:20behrad04@gmail.com', responsibility: 'HW4'},
     {firstName: 'Seyed Amir Mahdi', lastName: 'Sadrzadeh', avatar: 'Sadrzadeh.jpg', personalWebsite: 'mailto:a.m.sadrzade@gmail.com', responsibility: 'HW4'},
     {firstName: 'Sahar', lastName: 'Semsarha', avatar: 'Sems.jpg', personalWebsite: 'mailto:sahar.sems@gmail.com', responsibility: 'HW5'},
     {firstName: 'Melika', lastName: 'Dastgiri', avatar: 'Dastgiri.jpg', personalWebsite: 'mailto:melika.dastgiri@gmail.com', responsibility: 'HW5'},
@@ -35,12 +35,13 @@ const courseAssistants = {
     {firstName: 'Ashkan', lastName: 'Yousefnia', avatar: 'Yousefnia.jpg', personalWebsite: 'mailto:ashkan.yousefnia@gmail.com', responsibility: 'Project'},
     {firstName: 'Rojin', lastName: 'Salmani', avatar: 'profile.jpg', personalWebsite: 'mailto:rojinsalmani5@gmail.com', responsibility: 'Project'},
     {firstName: 'Zahra', lastName: 'Sorkheie', avatar: 'profile.jpg', personalWebsite: 'mailto:z.sorkhei@gmail.com', responsibility: 'Project'},
+    {firstName: 'Sina', lastName: 'Fathi', avatar: 'profile.jpg', personalWebsite: 'mailto:sina.fth7@gmail.com', responsibility: 'Tutorials'}
   ]
 };
 
 // Group assistants by responsibility in the desired order
 const groupedAssistants = computed(() => {
-  const order = ['Project', 'HW1', 'HW2', 'HW3', 'HW4', 'HW5', 'HW6'];
+  const order = ['Project', 'HW1', 'HW2', 'HW3', 'HW4', 'HW5', 'HW6', 'Tutorials'];
   const groups: { [key: string]: any[] } = {};
   
   // Group by responsibility
