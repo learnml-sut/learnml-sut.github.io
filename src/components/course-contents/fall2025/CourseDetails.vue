@@ -24,13 +24,13 @@ const presentations = ref([
     title: "L03. Multivariate Probability",
     description: "Joint Probabilities",
     link: "/files/slides/IML_L03_Multivariate_Probability.pdf",
-    available: false
+    available: true
   },
   {
     title: "L04. Statistics",
     description: "Statistical Concepts and Applications in Machine Learning",
-    link: "/files/slides/IML_14032_L04_Statistics.pdf",
-    available: false
+    link: "/files/slides/IML_L04_Statistics.pdf",
+    available: true
   },
   {
     title: "L05. Linear Algebra",
