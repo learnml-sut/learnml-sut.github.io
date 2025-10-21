@@ -25,7 +25,7 @@ const courseAssistants = {
     {firstName: 'Ramtin', lastName: 'Moslemi', avatar: 'Moslemi.jpg', personalWebsite: 'mailto:ramtin4moslemi@gmail.com', responsibility: 'HW2'},
     {firstName: 'Seyed Mohammad Mahdi', lastName: 'Mousavi', avatar: 'Mousavi.jpg', personalWebsite: 'mailto:n62603@gmail.com', responsibility: 'HW2'},
     {firstName: 'Sadegh', lastName: 'Mohammadian', avatar: 'Sadegh-m.jpg', personalWebsite: 'mailto:sadegh803211@gmail.com', responsibility: 'HW3'},
-    {firstName: 'Romina', lastName: 'Babaie', avatar: 'profile.jpg', personalWebsite: 'mailto:rominababaei.84@gmail.com', responsibility: 'HW3'},
+    {firstName: 'Romina', lastName: 'Babaie', avatar: 'Babaie.jpg', personalWebsite: 'mailto:rominababaei.84@gmail.com', responsibility: 'HW3'},
     {firstName: 'Behrad', lastName: 'Jahani', avatar: 'Jahani.jpg', personalWebsite: 'mailto:20behrad04@gmail.com', responsibility: 'HW4'},
     {firstName: 'Seyed Amir Mahdi', lastName: 'Sadrzadeh', avatar: 'Sadrzadeh.jpg', personalWebsite: 'mailto:a.m.sadrzade@gmail.com', responsibility: 'HW4'},
     {firstName: 'Sahar', lastName: 'Semsarha', avatar: 'Sems.jpg', personalWebsite: 'mailto:sahar.sems@gmail.com', responsibility: 'HW5'},
@@ -35,7 +35,7 @@ const courseAssistants = {
     {firstName: 'Ashkan', lastName: 'Yousefnia', avatar: 'Yousefnia.jpg', personalWebsite: 'mailto:ashkan.yousefnia@gmail.com', responsibility: 'Project'},
     {firstName: 'Rojin', lastName: 'Salmani', avatar: 'profile.jpg', personalWebsite: 'mailto:rojinsalmani5@gmail.com', responsibility: 'Project'},
     {firstName: 'Zahra', lastName: 'Sorkheie', avatar: 'profile.jpg', personalWebsite: 'mailto:z.sorkhei@gmail.com', responsibility: 'Project'},
-    {firstName: 'Sina', lastName: 'Fathi', avatar: 'profile.jpg', personalWebsite: 'mailto:sina.fth7@gmail.com', responsibility: 'Tutorials'}
+    {firstName: 'Sina', lastName: 'Fathi', avatar: 'Fathi.jpg', personalWebsite: 'mailto:sina.fth7@gmail.com', responsibility: 'Tutorials'}
   ]
 };
 
