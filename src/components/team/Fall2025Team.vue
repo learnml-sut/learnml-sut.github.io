@@ -35,6 +35,8 @@ const courseAssistants = {
     {firstName: 'Ashkan', lastName: 'Yousefnia', avatar: 'Yousefnia.jpg', personalWebsite: 'mailto:ashkan.yousefnia@gmail.com', responsibility: 'Project'},
     {firstName: 'Rojin', lastName: 'Salmani', avatar: 'profile.jpg', personalWebsite: 'mailto:rojinsalmani5@gmail.com', responsibility: 'Project'},
     {firstName: 'Zahra', lastName: 'Sorkheie', avatar: 'profile.jpg', personalWebsite: 'mailto:z.sorkhei@gmail.com', responsibility: 'Project'},
+    {firstName: 'Alireza', lastName: 'Faraj Tabrizi', avatar: 'Farajtabrizi.jpg', personalWebsite: 'mailto:alireza15farajtabrizi@gmail.com', responsibility: 'Tutorials'},
+    {firstName: 'Moein', lastName: 'Abdollahi Sarvi', avatar: 'Sarvi.jpg', personalWebsite: 'mailto:moeinabdollahisarvi@gmail.com', responsibility: 'Tutorials'},
     {firstName: 'Sina', lastName: 'Fathi', avatar: 'Fathi.jpg', personalWebsite: 'mailto:sina.fth7@gmail.com', responsibility: 'Tutorials'}
   ]
 };
