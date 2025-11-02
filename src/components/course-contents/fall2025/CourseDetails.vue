@@ -35,14 +35,14 @@ const presentations = ref([
   {
     title: "L05. Linear Algebra",
     description: "Essential Linear Algebra Concepts for Machine Learning",
-    link: "/files/slides/IML_14032_L05_Linear_Algebra.pdf",
-    available: false
+    link: "/files/slides/IML_L05_Linear_Algebra.pdf",
+    available: true
   },
   {
     title: "L06. Optimization",
     description: "Optimization Techniques",
-    link: "/files/slides/IML_14032_L06_L07_Optimization_Logistic.pdf",
-    available: false
+    link: "/files/slides/IML_L06_Optimization.pdf",
+    available: true
   },
   {
     title: "L07. Logistic Regression",
