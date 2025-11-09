@@ -47,8 +47,8 @@ const presentations = ref([
   {
     title: "L07. Logistic Regression",
     description: "Logistic Regression Theory and Applications",
-    link: "/files/slides/IML_14032_L06_L07_Optimization_Logistic.pdf",
-    available: false
+    link: "/files/slides/IML_L07_Logistic_Regression.pdf",
+    available: true
   },
   {
     title: "L08. Discriminant Analysis",
