@@ -53,8 +53,8 @@ const presentations = ref([
   {
     title: "L08. Discriminant Analysis",
     description: "Discriminant Analysis Methods",
-    link: "/files/slides/IML_14032_L08_L09_DA_Linear.pdf",
-    available: false
+    link: "/files/slides/IML_L08_Discriminant_Analysis.pdf",
+    available: true
   },
   {
     title: "L09. Linear Regression",
