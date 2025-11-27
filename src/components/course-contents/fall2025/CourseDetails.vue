@@ -59,8 +59,8 @@ const presentations = ref([
   {
     title: "L09. Linear Regression",
     description: "Linear Regression Models",
-    link: "/files/slides/IML_14032_L08_L09_DA_Linear.pdf",
-    available: false
+    link: "/files/slides/IML_L09_Linear_Regression.pdf",
+    available: true
   },
   {
     title: "L10. MultiLayer Perceptron",
